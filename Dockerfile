@@ -6,4 +6,6 @@ WORKDIR /home
 RUN wget https://releases.hashicorp.com/terraform/0.12.17/terraform_0.12.17_linux_amd64.zip && unzip terraform_0.12.17_linux_amd64.zip && mv terraform /usr/local/bin/ && rm -f terra* 
 RUN apk add docker && rc-update add docker boot
 RUN touch /var/run/docker.sock && setfacl -m user:go:rw /var/run/docker.sock
+
+WORKDIR /go 
 USER go 
